@@ -72,6 +72,14 @@ require([
    objectData.area = 2.061 + "km2"
    drawGeometry('polygon', arrPoint, simpleFillSymbol, handleContentPopup('Polygon 1', handleContent(objectData)));
 
+   /*
+   * Draw geometry
+   *
+   * @var type
+   * @var arrPoint = []
+   * @var simpleMarkerSymbol = {}
+   * @var attributesPoint = {}
+   */
    function drawGeometry(type, arrPoint, simpleMarkerSymbol, attributesPoint = {}) {
       let geometry = {
          type: type
@@ -99,6 +107,11 @@ require([
       handleAddGraphicLayer(arrParams);
    }
 
+   /*
+   * Handle add graphic layer
+   *
+   * @var arrParams = []
+   */
    function handleAddGraphicLayer(arrParams) {
       const pointGraphic = new Graphic({
          geometry: arrParams[0],
@@ -110,6 +123,12 @@ require([
       graphicsLayer.add(pointGraphic);
    }
 
+   /*
+   * Handle content popup
+   *
+   * @var name 
+   * @var content
+   */
    function handleContentPopup(name, content = "") {
       return {
          name,
@@ -117,6 +136,11 @@ require([
       };
    }
 
+   /*
+   * Handle simple marker symbol - for picture
+   *
+   * @var type 
+   */
    function handleSimpleMarkerSymbolPicture(type) {
       return {
          type: "picture-marker",
@@ -126,6 +150,11 @@ require([
       };
    }
 
+   /*
+   * handle content for content popup
+   *
+   * @var objectData = {} 
+   */
    function handleContent(objectData) {
       var str = "";
       for (const key in objectData) {
